@@ -1,0 +1,46 @@
+--- LDL/Makefile.orig	2011-12-07 23:49:57.000000000 +0100
++++ LDL/Makefile	2012-01-06 11:46:41.577108834 +0100
+@@ -6,7 +6,7 @@
+ 
+ default: demos
+ 
+-include ../UFconfig/UFconfig.mk
++include /usr/share/misc/UFconfig.mk
+ 
+ # Compile all C code, including the C-callable routine.
+ demos:
+--- LDL/Lib/Makefile.orig	2011-12-08 18:40:52.000000000 +0100
++++ LDL/Lib/Makefile	2012-01-06 12:05:28.417146565 +0100
+@@ -4,9 +4,9 @@
+ 
+ default: all
+ 
+-include ../../UFconfig/UFconfig.mk
++include /usr/share/misc/UFconfig.mk
+ 
+-I = -I../../UFconfig -I../Include
++I = -I../Include
+ 
+ C = $(CC) $(CF) $(I)
+ 
+--- LDL/Demo/Makefile.orig	2011-12-08 17:27:58.000000000 +0100
++++ LDL/Demo/Makefile	2012-01-06 13:09:16.100608063 +0100
+@@ -4,16 +4,15 @@
+ 
+ default: all
+ 
+-include ../../UFconfig/UFconfig.mk
++include /usr/share/misc/UFconfig.mk
+ 
+-I = -I../../UFconfig -I../Include
++I = -I../Include
+ 
+ C = $(CC) $(CF) $(I)
+ 
+ all: ldlsimple ldllsimple ldlmain ldllmain ldlamd ldllamd
+ 
+ library:
+-	( cd ../../AMD ; $(MAKE) library )
+ 	( cd ../Lib ; $(MAKE) )
+ 
+ #-------------------------------------------------------------------------------
