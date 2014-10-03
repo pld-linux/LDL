@@ -1,16 +1,16 @@
 Summary:	LDL: a simple LDL^T factorization for sparse matrices
 Summary(pl.UTF-8):	LDL - prosty rozkład LDL^T dla macierzy rzadkich
 Name:		LDL
-Version:	2.1.0
+Version:	2.2.0
 Release:	1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://www.cise.ufl.edu/research/sparse/ldl/%{name}-%{version}.tar.gz
-# Source0-md5:	654e7b8a45a123b7cab7182dd01a2dc9
+# Source0-md5:	9420881cadb9b55177d7f9a504674f40
 Patch0:		%{name}-ufconfig.patch
 Patch1:		%{name}-shared.patch
 URL:		http://www.cise.ufl.edu/research/sparse/ldl/
-BuildRequires:	SuiteSparse_config >= 4.0.0
+BuildRequires:	SuiteSparse_config >= 4.3.0
 BuildRequires:	libtool >= 2:1.5
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -41,7 +41,7 @@ Summary:	Header files for LDL library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki LDL
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	SuiteSparse_config >= 4.0.0
+Requires:	SuiteSparse_config >= 4.3.0
 
 %description devel
 Header files for LDL library.

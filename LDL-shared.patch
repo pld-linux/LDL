@@ -27,48 +27,48 @@
  
  distclean: purge
  
---- LDL/Demo/Makefile.orig	2012-01-07 09:58:11.419783839 +0100
-+++ LDL/Demo/Makefile	2012-01-07 11:03:47.723248976 +0100
-@@ -20,34 +20,34 @@
+--- LDL/Demo/Makefile.orig	2014-10-03 18:57:59.452562274 +0200
++++ LDL/Demo/Makefile	2014-10-03 19:01:18.822553908 +0200
+@@ -22,34 +22,34 @@
  #-------------------------------------------------------------------------------
  
  ldlmain:  ldlmain.c library
--	$(C) ldlmain.c ../Lib/libldl.a -o ldlmain -lm
-+	libtool --tag=CC --mode=link $(C) $(LDFLAGS) ldlmain.c ../Lib/libldl.la -o ldlmain -lm
+-	$(C) ldlmain.c ../Lib/libldl.a -o ldlmain $(LIB2)
++	libtool --tag=CC --mode=link $(C) $(LDFLAGS) ldlmain.c ../Lib/libldl.la -o ldlmain $(LIB2)
  	- ./ldlmain > my_ldlmain.out
  	- diff ldlmain.out my_ldlmain.out
  
  ldllmain:  ldlmain.c library
--	$(C) -DLDL_LONG ldlmain.c ../Lib/libldl.a -o ldllmain -lm
-+	libtool --tag=CC --mode=link $(C) $(LDFLAGS) -DLDL_LONG ldlmain.c ../Lib/libldl.la -o ldllmain -lm
+-	$(C) -DLDL_LONG ldlmain.c ../Lib/libldl.a -o ldllmain $(LIB2)
++	libtool --tag=CC --mode=link $(C) $(LDFLAGS) -DLDL_LONG ldlmain.c ../Lib/libldl.la -o ldllmain $(LIB2)
  	- ./ldllmain > my_ldllmain.out
  	- diff ldlmain.out my_ldllmain.out
  
  ldlsimple:  ldlsimple.c library
--	$(C) ldlsimple.c ../Lib/libldl.a -o ldlsimple -lm
-+	libtool --tag=CC --mode=link $(C) $(LDFLAGS) ldlsimple.c ../Lib/libldl.la -o ldlsimple -lm
+-	$(C) ldlsimple.c ../Lib/libldl.a -o ldlsimple $(LIB2)
++	libtool --tag=CC --mode=link $(C) $(LDFLAGS) ldlsimple.c ../Lib/libldl.la -o ldlsimple $(LIB2)
  	- ./ldlsimple > my_ldlsimple.out
  	- diff ldlsimple.out my_ldlsimple.out
  
  ldllsimple:  ldlsimple.c library
--	$(C) $(I) -DLDL_LONG ldlsimple.c ../Lib/libldl.a -o ldllsimple -lm
-+	libtool --tag=CC --mode=link $(C) $(LDFLAGS) $(I) -DLDL_LONG ldlsimple.c ../Lib/libldl.la -o ldllsimple -lm
+-	$(C) $(I) -DLDL_LONG ldlsimple.c ../Lib/libldl.a -o ldllsimple $(LIB2)
++	libtool --tag=CC --mode=link $(C) $(LDFLAGS) $(I) -DLDL_LONG ldlsimple.c ../Lib/libldl.la -o ldllsimple $(LIB2)
  	- ./ldllsimple > my_ldllsimple.out
  	- diff ldlsimple.out my_ldllsimple.out
  
  ldlamd:  ldlmain.c library
 -	- $(C) -I../../AMD/Include -DUSE_AMD \
--		ldlmain.c ../../AMD/Lib/libamd.a ../Lib/libldl.a -o ldlamd -lm
-+	- libtool --tag=CC --mode=link $(C) $(LDFLAGS) -DUSE_AMD \
-+		ldlmain.c -lamd ../Lib/libldl.la -o ldlamd -lm
+-		ldlmain.c ../../AMD/Lib/libamd.a ../Lib/libldl.a -o ldlamd $(LIB2)
++	- libtool --tag=CC --mode=link $(C) $(LDFLAGS) -I/usr/include/amd -DUSE_AMD \
++		ldlmain.c -lamd ../Lib/libldl.la -o ldlamd $(LIB2)
  	- ./ldlamd > my_ldlamd.out
  	- diff ldlamd.out my_ldlamd.out
  
  ldllamd:  ldlmain.c library
 -	- $(C) -DLDL_LONG $(I) -I../../AMD/Include -DUSE_AMD \
--		ldlmain.c ../../AMD/Lib/libamd.a ../Lib/libldl.a -o ldllamd -lm
-+	- libtool --tag=CC --mode=link $(C) $(LDFLAGS) -DLDL_LONG $(I) -DUSE_AMD \
-+		ldlmain.c -lamd ../Lib/libldl.la -o ldllamd -lm
+-		ldlmain.c ../../AMD/Lib/libamd.a ../Lib/libldl.a -o ldllamd $(LIB2)
++	- libtool --tag=CC --mode=link $(C) $(LDFLAGS) -DLDL_LONG $(I) -I/usr/include/amd -DUSE_AMD \
++		ldlmain.c -lamd ../Lib/libldl.la -o ldllamd $(LIB2)
  	- ./ldllamd > my_ldllamd.out
  	- diff ldllamd.out my_ldllamd.out
  
